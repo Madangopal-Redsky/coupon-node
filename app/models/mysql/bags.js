@@ -20,11 +20,10 @@ module.exports = function (Sequelize, Schema, Campaign, Brand, Coupon) {
         productId: {
             type: Sequelize.STRING,
             allowNull: false,
-            // unique: true, // Ensures each productId is unique
         },
         bagName: {
             type: Sequelize.STRING,
-            allowNull: false, // Add bag name (e.g., "Bag1")
+            allowNull: false,
         },
         expiryDate: {
             type: Sequelize.STRING,
@@ -44,27 +43,27 @@ module.exports = function (Sequelize, Schema, Campaign, Brand, Coupon) {
         }
     }, {
         underscored: true,
-        timestamps: true, // Automatically add createdAt and updatedAt fields
+        timestamps: true,
     });
 
     // Associations
     Bags.belongsTo(Campaign, {
         as: 'campaignDetails',
         foreignKey: 'campaign_id',
-        onDelete: 'CASCADE', // Cascade delete if Campaign is deleted
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
     });
 
     Bags.belongsTo(Brand, {
         as: 'brandDetails',
         foreignKey: 'brand_id',
-        onDelete: 'SET NULL', // Nullify if Brand is deleted
+        onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
     });
 
     Bags.belongsTo(Coupon, {
-        as: 'couponDetails', // Fixed naming consistency
-        foreignKey: 'coupon_id', // Renamed to 'coupon_id'
+        as: 'couponDetails',
+        foreignKey: 'coupon_id',
         onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
     });
