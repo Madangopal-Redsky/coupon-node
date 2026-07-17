@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "build": "echo build",
     "start": "NODE_ENV=production nodemon app.js",
     "local": "NODE_ENV=production nodemon app.js",
     "dev": "NODE_ENV=production node app.js",
