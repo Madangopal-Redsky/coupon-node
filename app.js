@@ -72,7 +72,7 @@ global.helper = require('./app/helpers/helpers.js');
 
 app.set('port', port);
 var config = require("./config/constants.js");
-server.listen(port, function () {
+server.listen(port, '0.0.0.0', function () {
   console.log("(---------------------------------)");
   console.log("|         Server Started...       |");
   console.log("|   " + process.env.BASE_URL + "  |" );
