@@ -4,7 +4,7 @@ require('dotenv').config()
 var express = require('express');
 var app = express();
 
-var port = process.env.SERVER_PORT;
+var port = process.env.SERVER_PORT || 8080;
 var flash = require('connect-flash');
 var path = require('path');
 var cookieParser = require('cookie-parser');
